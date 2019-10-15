@@ -32,8 +32,8 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 THIRD_PARTY_APPS = [
-    #'channels',
-    #'channels_redis',
+    'channels',
+    'channels_redis',
     'rest_framework',
     #'django_user_agents',
 ]
@@ -71,16 +71,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'social_network.wsgi.application'
-# ASGI_APPLICATION = "aux_login.routing.application"
-#
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             'hosts': [('localhost', 6379)],
-#         },
-#     }
-# }
+# Channels
+ASGI_APPLICATION = 'social_network.routings.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('localhost', 6379)],
+        },
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
