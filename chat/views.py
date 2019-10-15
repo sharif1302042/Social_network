@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 
 class Chat(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'chat_room.html'
+    template_name = 'chat.html'
     def get(self,request,room_name):
         return Response({'room_name_json': mark_safe(json.dumps(room_name))},status = status.HTTP_200_OK)
 
